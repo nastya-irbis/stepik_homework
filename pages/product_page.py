@@ -16,8 +16,6 @@ class ProductPage(BasePage):
         book_name = book_name.text
         success_message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE)
         success_message = success_message.text
-        #print(f"{book_name} has been added to your basket.")
-        #print(success_message)
         assert (f"{book_name} has been added to your basket.") == success_message, "There is wrong success message"
 
     def should_be_equal_prices(self):
@@ -25,8 +23,6 @@ class ProductPage(BasePage):
         product_price = product_price.text
         basket_price_message = self.browser.find_element(*ProductPageLocators.BASKET_PRICE_MESSAGE)
         basket_price_message = basket_price_message.text
-        #print(basket_price_message)
-        #print(f"Your basket total is now {product_price}")
         assert (f"Your basket total is now {product_price}") == basket_price_message, "There is wrong price message"
 
     def should_not_be_success_message(self):
